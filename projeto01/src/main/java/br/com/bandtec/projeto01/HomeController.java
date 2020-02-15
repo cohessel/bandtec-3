@@ -4,48 +4,72 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
+
+/*
+A anotação @RestController, tranforma a classe
+num repositório de EndPoints na REST aAPI do projeto
+ */
 @RestController
 public class HomeController {
 
+    /*
+    A anotação @GetMapping transforma o método num EndPoint da API
+     */
+    /*
+    Este Endpoint será acessível com localhost:8080
+     */
     @GetMapping
-    public String inicio(){
-        return "minha primeira API REST oooowwwwn!";
+    public String getFraseInicial() {
+        return "É nóis no Spring Boot!";
     }
 
-
-    @GetMapping ("/cumprimentar")
-    public String cumprimentar(){
-        return "Boa noite, galera!";
+    /*
+    Este Endpoint será acessível com localhost:8080/cumprimentar
+     */
+    @GetMapping("/cumprimentar")
+    public String cumprimentar() {
+        return "Boa noite, meu querido!";
     }
 
-    @GetMapping ("/cumprimentar/teamo")
-    public String teamo(){
-        return "MOMOMOMOMO";
-    }
-
-    @GetMapping("/beijar/{quem}") // ex: /beijar/GodZilla
+    // path param
+    @GetMapping("/beijar/{quem}")
     public String beijar(@PathVariable("quem") String quem) {
-        return "Um beijo, "+quem+"!";
+        return "Beijo, "+quem+"!!!";
     }
 
-    @GetMapping("/deletar/{usuario}")
-    public String usuario(@PathVariable("usuario") String usuario){
-        return usuario+ " deletado(a)";
+
+    @GetMapping("/multiplicar/{n1}/{n2}")
+    public String multiplicar(@PathVariable("n1") Double n1, @PathVariable("n2") Double n2) {
+        return "A multiplicação dá: "+(n1*n2);
     }
 
-    @GetMapping("/dados/{altura}/{nome}")
-    public String dados(@PathVariable("altura") String altura,
-                           @PathVariable("nome") String nome){
-        return "Olá, "+nome+ " você tem "+altura+ " de altura!";
+    @GetMapping("/calcular/{nome}/{nota1}/{nota2}")
+    public String calcular(
+            @PathVariable("nome") String nome,
+            @PathVariable("nota1") Double nota1,
+            @PathVariable("nota2") Double nota2) {
+        Double media = (nota1+nota2)/2;
+
+        String resultado = media >= 5 ? "Aprovado(a)" : "Reprovado(a)";
+
+        return "Olá, "+nome+", sua média foi "+media+" e seu resultado foi "+resultado;
     }
 
-    @GetMapping("escola/{nota1}/{nota2}/{nomeAluno}")
-    public String escola(@PathVariable("nota1")Double nota1,
-                         @PathVariable("nota2") Double nota2,
-                         @PathVariable("nomeAluno")String nome){
-        Double media = (nota1 + nota2) / 2;
-        String resultado = media >= 5 ? "aprovado" : "reprovado";
-        return "Oi,"+nome+" sua média foi "+media+" e seu" +
-                " resultado foi "+resultado;
+    @GetMapping("/meupet")
+    public Animal getMeuPet() {
+        Animal pet = new Animal("Xena", "Cachorro", 5);
+        return pet;
+    }
+
+    @GetMapping("/varios-pets")
+    public List<Animal> getVariosPets() {
+        List animais = Arrays.asList(
+            new Animal("Xena", "Cachorro", 5),
+            new Animal("Batman", "Cachorro", 8),
+            new Animal("Louro Jose", "Papagaio", 8)
+        );
+        return animais;
     }
 }
