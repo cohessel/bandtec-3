@@ -19,7 +19,7 @@ public class SayajinController {
     }
 
     @GetMapping ("/transformar/{forma}")
-    public Integer setTransformar(@PathVariable("transformar") String forma){
+    public void setTransformar(@PathVariable("transformar") String forma){
         if(forma.equals("ssj")){
             this.forca *= 50;
         }
