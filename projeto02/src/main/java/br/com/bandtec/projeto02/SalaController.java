@@ -35,11 +35,14 @@ public class SalaController {
     private String atualizarSala(
             @PathVariable("nome") String nome,
             @PathVariable("capacidade") Integer capacidade){
-        if(salaAtual != null)
-            salaAtual = new Sala(nome, capacidade);
+
+//        if(salaAtual != null)
+//            salaAtual = new Sala(nome, capacidade);
+//        return "Atualizado!";
+
+        salaAtual.setNome(nome);
+        salaAtual.setCapacidade(capacidade);
         return "Atualizado!";
     }
-
-
 
 }

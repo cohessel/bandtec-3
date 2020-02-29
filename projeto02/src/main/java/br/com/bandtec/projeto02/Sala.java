@@ -9,11 +9,21 @@ public class Sala {
         this.capacidade = capacidade;
     }
 
+
+
     public String getNome() {
         return nome;
     }
 
     public Integer getCapacidade() {
         return capacidade;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCapacidade(Integer capacidade) {
+        this.capacidade = capacidade;
     }
 }
