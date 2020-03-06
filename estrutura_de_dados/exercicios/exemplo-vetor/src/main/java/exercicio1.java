@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class exercicio1 {
     public static void main(String[] args) {
 
-        int[] numero = new int[6];
+        int[] numero = new int[7];
         Scanner leitor = new Scanner(System.in);
 
-        for(int contador =0; contador <numero.length; contador++){
+        for(int contador =0; contador < numero.length; contador++){
             System.out.println("Digite um número");
             numero[contador] = leitor.nextInt();
         }

@@ -11,10 +11,18 @@ public class exercicio3 {
             numeros[contador] = leitor.nextInt();
         }
 
-//        for(int i= 0; i < numeros.length; i++){
-//
-//        }
-//        double media = total / qtd;
+        int total = 0;
+        for(int i= 0; i < numeros.length; i++){
+            total = total + numeros[i];
+        }
+        double media = total / numeros.length;
+        System.out.println("média:" + media);
+
+        for(int i = 0; i < numeros.length; i++){
+          if(numeros[i] > media) {
+              System.out.print(numeros[i] + " ");
+          }
+        }
     }
 
 }
