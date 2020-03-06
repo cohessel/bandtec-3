@@ -11,7 +11,7 @@ import java.util.List;
 public class LoginController {
 
     Login credencial = new Login("Larissa","1234");
-    Login autenticacao = new LoginValidacao("Larissa","")
+//    Login autenticacao = new LoginValidacao("Larissa","");
 
     @PostMapping("/entrar/{login}/{senha}")
     public String entrarUsuario(
@@ -26,9 +26,9 @@ public class LoginController {
 
     }
 
-    @GetMapping ("/seguranca/usuario/logoff")
-    public String altenticarUsuario{
-        return
-    }
+//    @GetMapping ("/seguranca/usuario/logoff")
+//    public String altenticarUsuario{
+//        return
+//    }
 }
 
