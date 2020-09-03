@@ -22,12 +22,12 @@ public class Program {
 
         do {
             try {
-                System.out.println("> Digite o quantos alunos você deseja registrar... (De 5 a 15)");
+                System.out.println("> Digite o quantos alunos você deseja registrar... (De 5 a 15)\n");
                 maxAluno = leitor.nextInt();
                 if (maxAluno < 5 || maxAluno > 15) {
-                    throw new Exception("> Digite o quantos alunos você deseja registrar... (De 5 a 15");
+                    throw new Exception("> Digite o quantos alunos você deseja registrar... (De 5 a 15)\n");
                 }
-            } catch (Exception erro) {
+            }  catch (Exception erro) {
                 System.out.printf("Valor inválido! >:D\n");
             }
         } while (maxAluno < 5 || maxAluno > 15);
